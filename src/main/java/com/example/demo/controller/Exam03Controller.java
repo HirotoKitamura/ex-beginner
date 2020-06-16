@@ -28,6 +28,14 @@ public class Exam03Controller {
 		return "exam03";
 	}
 
+	/**
+	 * 結果画面のコントローラー.
+	 * 
+	 * @param num1 入力された価格
+	 * @param num2 入力された価格
+	 * @param num3 入力された価格
+	 * @return
+	 */
 	@RequestMapping("result")
 	public String result(int num1, int num2, int num3) {
 		application.setAttribute("price", num1 + num2 + num3);
