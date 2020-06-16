@@ -16,6 +16,14 @@
 </form>
 </div>
 <div id="cart">
+<h1>ショッピングカート</h1>
+<form th:each="item, status:${session.cart}" th:action="@{/ex06/delete}" method="post">
+<input type="hidden" name="numberToDelete" th:value="${status.index}">
+<span th:text="${item.name}"></span>
+<span th:text="${#numbers.formatInteger(item.price, 0, 'COMMA')}+円"></span>
+<button>削除</button>
+</form>
+合計:<span th:text="${totalPrice} + 円"></span>
 </div>
 
 </body>
