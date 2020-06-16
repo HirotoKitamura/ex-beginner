@@ -1,14 +1,37 @@
 package com.example.demo.domain;
 
+/**
+ * ユーザー情報のドメインクラス.
+ * @author hiroto.kitamura
+ *
+ */
 public class User {
+	/**
+	 * ユーザーの名前.
+	 */
 	private String name;
+	/**
+	 * ユーザーの年齢.
+	 */
 	private Integer age;
+	/**
+	 * ユーザーのコメント.
+	 */
 	private String comment;
 
+	/**
+	 * コンストラクタ引数なし.
+	 */
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * コンストラクタ引数あり.
+	 * @param name
+	 * @param age
+	 * @param comment
+	 */
 	public User(String name, Integer age, String comment) {
 		super();
 		this.name = name;
