@@ -17,6 +17,10 @@ public class Exam03Controller {
 	@Autowired 
 	private ServletContext application;
 	
+	/**
+	 * トップ画面のコントローラー.
+	 * @return
+	 */
 	@RequestMapping("")
 	public String index() {
 		return "exam03";
