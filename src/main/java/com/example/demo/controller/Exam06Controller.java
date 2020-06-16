@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Exam06Controller {
 	
 	@RequestMapping("")
 	public String index(Model model) {
-		List<Item> itemList = new LinkedList<>();
+		List<Item> itemList = new ArrayList<>();
 		itemList.add(new Item("手帳ノート", 1000));
 		itemList.add(new Item("文房具セット", 1500));
 		itemList.add(new Item("ファイル", 2000));
@@ -44,6 +45,27 @@ public class Exam06Controller {
 		}
 		model.addAttribute("totalPrice", totalPrice);
 		return "item-and-cart";
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("in-cart")
+	public String inCart(int numberToAdd, Model model) {
+		List<Item> itemList = (List<Item>)application.getAttribute("itemList");
+		Item item = itemList.get(numberToAdd);
+		List<Item> cart;
+		if(session.getAttribute("cart") == null) {
+			cart = new LinkedList<>();
+		} else {
+			cart = (List<Item>)session.getAttribute("cart");
+		}
+		cart.add(item);
+		session.setAttribute("cart", cart);
+		return index(model);
+	}
+
+	@RequestMapping("delete")
+	public String delete(int numberToDelete, Model model) {
+		return index(model);
 	}
 	
 }
