@@ -19,7 +19,7 @@ public class MemberRepository {
 	private NamedParameterJdbcTemplate template;
 	
 	/**
-	 * 曖昧検索を行う
+	 * 曖昧検索を行う.
 	 * @param partOfName　名前の一部
 	 * @return　partOfNameを含む名前の一覧
 	 */
